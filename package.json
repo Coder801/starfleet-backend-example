@@ -1,13 +1,20 @@
 {
   "dependencies": {
     "@fastify/cors": "^10.0.2",
-    "fastify": "^5.2.1"
+    "@netlify/functions": "^3.0.0",
+    "@types/express": "^5.0.0",
+    "express": "^4.21.2",
+    "fastify": "^5.2.1",
+    "netlify-cli": "^18.0.2",
+    "netlify-lambda": "^2.0.16",
+    "serverless-http": "^3.2.0"
   },
   "name": "starfleet-backend-example",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
+    "build": "netlify deploy --prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
