@@ -1,10 +1,18 @@
 import express, { Router } from "express";
 import serverless from "serverless-http";
 
-const api = express();
+import { generateRandomValue } from "../../src/utils/generateRandomValue";
 
+const api = express();
 const router = Router();
-router.get("/hello", (req: any, res: any) => res.send("Hello World!"));
+const INTERVAL = 10000;
+let latestValue = generateRandomValue();
+
+setInterval(() => {
+  latestValue = generateRandomValue();
+}, INTERVAL);
+
+router.get("/get-stats", (req: any, res: any) => res.json({ stats: "stats" }));
 
 api.use("/api/", router);
 
