@@ -22,11 +22,20 @@ setInterval(() => {
   }
 }, INTERVAL);
 
+const allowedOrigins = ["http://localhost:3000", "http://localhost:4000"];
+
 app.use(
   cors({
-    origin: "localhost:3000",
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true); // Разрешить запрос
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
   })
 );
+
 router.get("/get-stats", (_, res: any) => res.json(latestValues));
 
 app.use("/api/", router);
