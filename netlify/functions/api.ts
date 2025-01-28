@@ -22,7 +22,11 @@ setInterval(() => {
   }
 }, INTERVAL);
 
-app.use(cors());
+app.use(
+  cors({
+    origin: "localhost:3000",
+  })
+);
 router.get("/get-stats", (_, res: any) => res.json(latestValues));
 
 app.use("/api/", router);
