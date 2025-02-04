@@ -23,7 +23,8 @@ setInterval(() => {
 }, INTERVAL);
 
 const allowedOrigins = [
-  "http://localhost, http://localhost:3000",
+  "http://localhost",
+  "http://localhost:3000",
   "http://localhost:4000",
 ];
 
